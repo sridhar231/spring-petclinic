@@ -10,7 +10,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "mvn pacakage"
+                sh "mvn package"
             }
         }
         stage('sonar analysis') {
