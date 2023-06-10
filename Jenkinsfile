@@ -1,6 +1,6 @@
 pipeline { 
     agent { label 'MAVEN_JDK17'}
-    tools { jdk 'JDK_17_UBUNTU'}
+    tools { jdk 'JDK_17'}
     stages {
         stage('VCS') {
             steps {
