@@ -1,6 +1,5 @@
 pipeline {
     agent { label 'JDK_17'}
-    tools { jdk 'JAVA_17'}
     stages {
         stage('vcs') {
             steps {
@@ -31,11 +30,10 @@ pipeline {
                 )
             }
         }
-        stage('build') {
-            steps {
-                sh "mvn package"
+        stage('package') {
+            tools {
+                jdk 'JAVA_17'
             }
-        }
             steps {
                 rtMavenRun (
                     tool: 'MAVEN_DEFAULT',
