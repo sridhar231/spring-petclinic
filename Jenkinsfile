@@ -52,7 +52,7 @@ pipeline {
             steps {
                 // performing sonarqube analysis with "withSonarQubeENV(<Name of Server configured in Jenkins>)"
                 withSonarQubeEnv('SONAR_CLOUD') {
-                    sh 'mvn clean package sonar:sonar -Dsonar.organization=springpetclinic1'
+                    sh 'mvn clean package sonar:sonar -Dsonar.login=43be213320a3cc723d4215d900750b4c4c655893 -Dsonar.organization=springpetclinic-sri -Dsonar.projectKey=springpetclinic-sri_springpetclinic-sri'
                 }
             }
         }
