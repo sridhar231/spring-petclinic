@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('vcs') {
             steps {
-                git url: 'https://github.com/khajadevopsmarch23/spring-petclinic.git',
+                git url: 'https://github.com/sridhar231/spring-petclinic.git',
                     branch: 'main'
             }
         }
@@ -11,7 +11,7 @@ pipeline {
             steps {
                 rtServer (
                     id: "ARTIFACTORY_SERVER",
-                    url: 'https://sridhar006.jfrog.io//artifactory',
+                    url: 'https://sridhar006.jfrog.io/artifactory',
                     credentialsId: 'JFROG_CLOUD_ADMIN'
                 )
 
@@ -58,7 +58,7 @@ pipeline {
         }
         stage('post build') {
             steps {
-                archiveArtifacts artifacts: '**/target/spring-petclinic-3.0.0-SNAPSHOT.jar',
+                archiveArtifacts artifacts: '**/target/spring-petclinic-3.1.0-SNAPSHOT.jar',
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
